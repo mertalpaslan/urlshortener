@@ -1,10 +1,9 @@
 require 'sinatra'
 require './lib/pair'
 require './lib/url'
-require 'pry'
 
 get '/' do
-  redirect_home
+  erb :home
 end
 
 get '/:short' do
@@ -22,10 +21,6 @@ post '/shorten' do
   else
     { error: "URL is not valid." }.to_json
   end
-end
-
-def redirect_home(locals = nil)
-  erb :home, locals: locals
 end
 
 def create_pair(url)
