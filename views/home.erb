@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL Shortener</title>
+  <meta name="description" content="Shorten and manage long URLs with our easy-to-use URL Shortener tool. Improve user experience and share links more efficiently.">
+  <title>URL Shortener - Shorten and Manage URLs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -20,9 +21,9 @@
               <div class="field">
                 <label class="label" for="urlInput">Enter a URL</label>
                 <div class="control has-icons-left">
-                  <input id="urlInput" class="input" type="text" placeholder="E.g., https://example.com">
+                  <input id="urlInput" class="input" type="text" placeholder="E.g., https://example.com" autocomplete="off">
                   <span class="icon is-small is-left">
-                    <i class="fas fa-link"></i>
+                    <i class="fas fa-link" alt="Link Icon"></i>
                   </span>
                 </div>
               </div>
@@ -34,7 +35,7 @@
               </div>
               <div id="errorBox" class="notification is-danger is-hidden"></div>
               <div id="resultBox" class="notification is-success is-hidden">
-                <label id="resultLabel" class="label"></label>
+                <label id="resultLabel" class="label">Shortened URL</label>
                 <div class="field has-addons">
                   <div class="control is-expanded">
                     <input id="shortUrl" class="input" type="text" readonly>
@@ -46,7 +47,7 @@
               </div>
               <div class="field">
                 <div class="control">
-                  <button id="shortenButton" class="button is-primary is-fullwidth">Shorten</button>
+                  <button id="shortenButton" class="button is-primary is-fullwidth">Shorten URL</button>
                 </div>
               </div>
             </div>
