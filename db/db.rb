@@ -2,7 +2,7 @@ require 'sqlite3'
 
 module DB
   def self.connection
-    @@db ||= SQLite3::Database.new 'db/test.db'
+    @@db ||= create_db
   end
   
   def self.find_by opts
@@ -22,6 +22,27 @@ module DB
     SQL
     
     query&.first&.first
+  end
+
+  def self.migrate db
+    db.execute <<-SQL 
+    CREATE TABLE IF NOT EXISTS links (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      long CHAR(30) UNIQUE NOT NULL,
+      short CHAR(30) UNIQUE NOT NULL 
+    );
+
+    CREATE INDEX source_index ON links(long);
+
+    CREATE INDEX source_index ON links(short)
+    SQL
+  end
+
+  def self.create_db
+    db = SQLite3::Database.new 'db/test.db'
+    migrate db
+
+    db
   end
 end
 

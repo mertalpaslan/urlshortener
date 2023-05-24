@@ -12,9 +12,15 @@ const resultLabel = document.getElementById('resultLabel')
 shortenButton.addEventListener('click', confirmShorten)
 confirmButton.addEventListener('click', shortenUrl)
 cancelButton.addEventListener('click', hideConfirmationBox)
+urlInput.onkeydown = function (e) {
+  window.e = e
+  if (e.key == 'Enter') confirmShorten()
+}
 
 function confirmShorten() {
-  resultBox.classList.add('is-hidden')
+  hideError()
+  hideResult()
+
   const fullUrl = urlInput.value
   if (fullUrl) {
     confirmationText.innerHTML = `Is the URL you want to shorten: <a href="//${fullUrl}">${fullUrl}</a> ?`
@@ -63,6 +69,14 @@ function showShortenedUrl(data) {
 function showError(message) {
   errorBox.textContent = message
   errorBox.classList.remove('is-hidden')
+}
+
+function hideError() {
+  errorBox.classList.add('is-hidden')
+}
+
+function hideResult() {
+  resultBox.classList.add('is-hidden')
 }
 
 const copyButton = document.getElementById('copyButton')
