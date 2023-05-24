@@ -1,10 +1,33 @@
 require 'sinatra'
+require './lib/pair'
+require './lib/url'
+require 'pry'
 
 get '/' do
-  erb :home
+  redirect_home
+end
+
+get '/:short' do
+  pair = create_pair(short: params[:short])
+
+  redirect pair.long
 end
 
 post '/shorten' do
-  @url = db.find_or_init(params[:url])
-  params[:url]
+  if long = URL.valid(params[:url])
+    pair = create_pair(long: long)
+    content_type :json
+    
+    { short: URI.join(request.base_url, pair.short), long: pair.long }.to_json
+  else
+    { error: "URL is not valid." }.to_json
+  end
+end
+
+def redirect_home(locals = nil)
+  erb :home, locals: locals
+end
+
+def create_pair(url)
+  Pair.new(url)
 end

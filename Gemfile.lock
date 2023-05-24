@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    mini_portile2 (2.8.2)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.9)
@@ -9,12 +10,15 @@ GEM
     rack (2.2.7)
     rack-protection (3.0.6)
       rack
+    rake (13.0.6)
     ruby2_keywords (0.0.5)
     sinatra (3.0.6)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.6)
       tilt (~> 2.0)
+    sqlite3 (1.6.3)
+      mini_portile2 (~> 2.8.0)
     tilt (2.1.0)
 
 PLATFORMS
@@ -22,7 +26,9 @@ PLATFORMS
 
 DEPENDENCIES
   puma
+  rake
   sinatra
+  sqlite3
 
 BUNDLED WITH
    2.3.11

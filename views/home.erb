@@ -1,29 +1,62 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>URL Shortener</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/home.css" />
-  </head>
-  <body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="section">
     <div class="container">
-      <h1>Type</h1>
-      <form id="url-form" action="/shorten" method="post">
-        <input
-          type="text"
-          id="url"
-          name="url"
-          placeholder="Enter URL to shorten"
-          required
-        />
-        <button type="submit">Shorten</button>
-      </form>
-      <div id="result-container">
-        <p id="result-message">"aasd"</p>
-        <input type="text" id="shortened-url" readonly />
-        <button id="copy-button">Copy</button>
+      <h1 class="title has-text-centered">URL Shortener</h1>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <div class="field">
+                <label class="label" for="urlInput">Enter a URL</label>
+                <div class="control has-icons-left">
+                  <input id="urlInput" class="input" type="text" placeholder="E.g., https://example.com">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-link"></i>
+                  </span>
+                </div>
+              </div>
+              <div id="confirmationBox" class="notification is-info is-hidden">
+                <p id="confirmationText"></p>
+                <button id="confirmButton" class="button is-primary">Yes</button>
+                <button id="cancelButton" class="button">Cancel</button>
+              </div>
+              <div id="errorBox" class="notification is-danger is-hidden"></div>
+              <div id="resultBox" class="notification is-success is-hidden">
+                <label id="resultLabel" class="label"></label>
+                <div class="field has-addons">
+                  <div class="control is-expanded">
+                    <input id="shortUrl" class="input" type="text" readonly>
+                  </div>
+                  <div class="control">
+                    <button id="copyButton" class="button is-info">Copy</button>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button id="shortenButton" class="button is-primary is-fullwidth">Shorten</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
+
 </html>
