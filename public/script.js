@@ -62,7 +62,7 @@ function shortenUrl() {
 
 function showShortenedUrl(data) {
   shortUrl.value = data.short
-  resultLabel.innerHTML = `Shortened URL for <a href="${data.long}">${data.long};`
+  resultLabel.innerHTML = `Shortened URL for <a href="${data.long}">${data.long}:`
   resultBox.classList.remove('is-hidden')
 }
 

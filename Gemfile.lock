@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     mini_portile2 (2.8.2)
-    multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.9)
@@ -18,12 +17,6 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.6)
       tilt (~> 2.0)
-    sinatra-contrib (3.0.6)
-      multi_json
-      mustermann (~> 3.0)
-      rack-protection (= 3.0.6)
-      sinatra (= 3.0.6)
-      tilt (~> 2.0)
     sqlite3 (1.6.3)
       mini_portile2 (~> 2.8.0)
     tilt (2.1.0)
@@ -36,7 +29,6 @@ DEPENDENCIES
   puma
   rake
   sinatra
-  sinatra-contrib
   sqlite3
 
 BUNDLED WITH
