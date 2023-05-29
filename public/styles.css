@@ -8,12 +8,7 @@
   max-width: 300;
   max-height: 600px;
 }
-@media (min-width: 500px) {
-  .banner {
-    max-width: 320px;
-    max-height: 250px;
-  }
-}
+
 @media (min-width: 800px) {
   .banner {
     min-width: 160px;
